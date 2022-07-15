@@ -2,15 +2,16 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: () => import('../views/login/index.vue')
+  },
+  {
+    path: '/',
+    component: () => import('../layout/index')
+    // children: []
+    // redirect: '/home',
   }
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
 ]
 
 const router = createRouter({

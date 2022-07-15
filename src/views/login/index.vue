@@ -12,10 +12,11 @@
         <div class="login-content">
           <el-form ref="form" :model="LoginForm" :rules="LoginRules" label-width="145px">
             <el-form-item prop="username">
-              <el-input v-model="LoginForm.username" placeholder="请输入用户名"></el-input>
+              <el-input v-model="LoginForm.username" :prefix-icon="User" placeholder="请输入用户名"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input v-model="LoginForm.password" placeholder="请输入密码" type="password"></el-input>
+              <el-input v-model="LoginForm.password" :prefix-icon="Lock" placeholder="请输入密码" show-password
+                        type="password"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button color="#626aef" @click="LoginSubmit">登录</el-button>
@@ -28,15 +29,34 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { User, Lock } from '@element-plus/icons-vue'
+import { reactive, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import { ElNotification } from 'element-plus'
+
+const router = useRouter()
+const store = useStore()
+const form = ref()
 // 登录表单
 const LoginForm = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: 'admin'
 })
 // 点击登录
 const LoginSubmit = () => {
-  console.log('submit!')
+  form.value.validate(async (valid) => {
+    if (valid) {
+      const res = await store.dispatch('user/handleLogin', LoginForm)
+      if (!res) return
+      await router.push('/')
+      ElNotification({
+        title: 'Success',
+        message: '登录成功',
+        type: 'success'
+      })
+    }
+  })
 }
 // 登录表单验证规则
 const LoginRules = {
