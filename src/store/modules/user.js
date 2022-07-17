@@ -5,7 +5,7 @@ export default {
   namespaced: true,
   state: {
     token: getItem('token') || '',
-    userInfo: {}
+    userInfo: getItem('userInfo') || {}
   },
   mutations: {
     // 保存token
@@ -20,6 +20,7 @@ export default {
     }
   },
   actions: {
+    // 登录
     async handleLogin ({ commit }, payload) {
       const { data } = await LoginApi.login(payload)
       const token = data.data.token
@@ -27,6 +28,21 @@ export default {
       commit('SET_TOKEN', token)
       // console.log(data, '登录状态')
       return token
+    },
+    //  退出登录
+    async handleLogout ({ commit }) {
+      const { status } = await LoginApi.logout()
+      if (status === 200) {
+        commit('SET_TOKEN', '')
+        commit('SET_USER_INFO', {})
+      }
+      // commit('SET_TOKEN', '')
+      return status
+    },
+    //  获取用户信息
+    async getUserInfo ({ commit }) {
+      const { data } = await LoginApi.getUserInfo()
+      commit('SET_USER_INFO', data.data)
     }
   }
 }

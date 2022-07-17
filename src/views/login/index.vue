@@ -51,7 +51,6 @@ const LoginSubmit = () => {
       if (!res) return
       await router.push('/')
       ElNotification({
-        title: 'Success',
         message: '登录成功',
         type: 'success'
       })

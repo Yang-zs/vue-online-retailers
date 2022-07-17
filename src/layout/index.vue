@@ -5,14 +5,17 @@
         <MyHead/>
       </el-header>
       <el-container>
-        <el-aside width="200px">Aside</el-aside>
-        <el-main>Main</el-main>
+        <Aside/>
+        <el-main>
+          <router-view/>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script setup>
 import MyHead from './MyHead'
+import Aside from './Aside'
 </script>
 
 <style lang='scss' scoped>
@@ -27,7 +30,9 @@ import MyHead from './MyHead'
 }
 
 .el-aside {
-  background-color: #D3DCE6;
+  background-color: #ffffff;
+  width: fit-content;
+  width: -moz-fit-content;
 }
 
 .el-main {
