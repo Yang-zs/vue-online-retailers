@@ -2,6 +2,8 @@
 import axios from 'axios'
 // 引入store
 import store from '../store'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 创建axios实例对象
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -13,13 +15,15 @@ service.interceptors.request.use(
   (config) => {
     // console.log(config, '请求拦截器')
     // 判断是否存在token
+    NProgress.start()
     const token = store.getters.token
-    if (store.state.user.token) {
-      config.headers.Authorization = token
+    if (token) {
+      config.headers.token = token
     }
     return config
   },
   (error) => {
+    NProgress.done()
     return Promise.reject(error)
   }
 )
@@ -28,9 +32,11 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     // console.log(response, '响应拦截器')
+    NProgress.done()
     return response
   },
   (error) => {
+    NProgress.done()
     return Promise.reject(error)
   }
 )
