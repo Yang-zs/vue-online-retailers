@@ -25,7 +25,7 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const li = router.getRoutes()
-console.log(li, 'li')
+// console.log(li, 'li')
 const store = useStore()
 const menuList = computed(() => {
   return filterMenus(store.getters.menus)

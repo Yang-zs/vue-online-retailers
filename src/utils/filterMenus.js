@@ -18,6 +18,6 @@ export const filterMenus = (menus) => {
     }
     newMenus.push(result)
   })
-  console.log(newMenus)
+  // console.log(newMenus)
   return newMenus
 }

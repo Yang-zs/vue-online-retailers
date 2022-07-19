@@ -2,12 +2,13 @@
   <div class="common-layout">
     <el-container>
       <el-header>
-        <MyHead/>
+        <MyHead />
       </el-header>
       <el-container>
-        <Aside/>
+        <Aside />
         <el-main>
-          <router-view/>
+          <TagsViews />
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
@@ -16,9 +17,10 @@
 <script setup>
 import MyHead from './MyHead'
 import Aside from './Aside'
+import TagsViews from '@/components/TagsViews.vue'
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .common-layout {
   height: 100%;
 }
@@ -36,11 +38,11 @@ import Aside from './Aside'
 }
 
 .el-main {
-  background-color: #E9EEF3;
+  background-color: #f3f4f6;
+  padding-top: 0;
 }
 
 .el-container {
   height: 100%;
 }
-
 </style>
