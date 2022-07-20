@@ -12,11 +12,10 @@
 </template>
 
 <script setup>
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 const store = useStore()
-const route = useRoute()
 const router = useRouter()
 
 const handleCommand = (command) => {
@@ -24,6 +23,7 @@ const handleCommand = (command) => {
     // store.commit('tagsview/Close_Other_Tags')
   } else if (command === 'b') {
     store.commit('tagsview/Delete_All_Tags')
+    router.push('/index')
   }
 }
 

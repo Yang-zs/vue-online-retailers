@@ -16,8 +16,8 @@ const statistics2 = () => {
 
 const statistics3 = (type) => {
   return request({
-    url: `/admin/statistics3/${type}`,
-    method: 'GET'
+    url: '/admin/statistics3?type=' + type,
+    method: 'get'
   })
 }
 export default {

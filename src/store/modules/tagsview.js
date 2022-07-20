@@ -26,8 +26,13 @@ export default {
       setItem('tagsViews', state.tagsViews)
     }
     // 删除全部标签
-    // Delete_All_Tags (state) {
-    //   state.tagsViews = []
+    // Delete_All_Tags(state) {
+    //   state.tagsViews = [
+    //     {
+    //       path: '/index',
+    //       title: '主控台'
+    //     }
+    //   ]
     //   setItem('tagsViews', state.tagsViews)
     // }
     //  关闭其他标签

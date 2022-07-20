@@ -1,9 +1,10 @@
 <template>
   <div class="card">
     <el-card v-for="(item,index) in cardList" :key="index" shadow="hover">
-      <el-icon>
+      <el-icon :color="item.color">
         <component :is="item.icon"/>
       </el-icon>
+      <div class="title">{{ item.name }}</div>
     </el-card>
   </div>
 </template>
@@ -61,10 +62,7 @@ const cardList = ref([
     color: '#ffa123'
   }
 ])
-const log = () => {
-  console.log(cardList.value, '231')
-}
-log()
+
 </script>
 
 <style lang='scss' scoped>
@@ -77,7 +75,11 @@ log()
 
   .el-card {
     width: 135px;
+    text-align: center;
 
+    .title {
+      margin-top: 10px;
+    }
   }
 }
 </style>

@@ -2,13 +2,13 @@
   <div class="common-layout">
     <el-container>
       <el-header>
-        <MyHead />
+        <MyHead/>
       </el-header>
       <el-container>
-        <Aside />
+        <Aside/>
         <el-main>
-          <TagsViews />
-          <router-view />
+          <TagsViews/>
+          <router-view/>
         </el-main>
       </el-container>
     </el-container>
@@ -24,12 +24,15 @@ import TagsViews from '@/components/TagsViews.vue'
 <style lang="scss" scoped>
 .common-layout {
   height: 100%;
+
 }
 
 .main-head {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
 }
 
 .el-header {

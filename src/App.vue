@@ -4,6 +4,11 @@
 
 <style lang="scss">
 html, body, #app {
-  height: 100%
+  height: 100%;
+
+  ::-webkit-scrollbar {
+    display: none;
+
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tabBOx">
     <el-tabs
       v-model="active"
       class="demo-tabs"
@@ -75,9 +75,17 @@ watch(
 </script>
 
 <style lang="scss" scoped>
+.tabBOx {
+  width: 100%;
+
+}
+
 .el-tabs {
   position: absolute;
   top: 0;
+  z-index: 999;
+  background-color: #f3f4f6;
+  width: 100%;
 }
 
 .demo-tabs > .el-tabs__content {
