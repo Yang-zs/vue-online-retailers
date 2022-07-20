@@ -17,12 +17,19 @@
 <script setup>
 import MyHead from './MyHead'
 import Aside from './Aside'
+
 import TagsViews from '@/components/TagsViews.vue'
 </script>
 
 <style lang="scss" scoped>
 .common-layout {
   height: 100%;
+}
+
+.main-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .el-header {
@@ -39,7 +46,9 @@ import TagsViews from '@/components/TagsViews.vue'
 
 .el-main {
   background-color: #f3f4f6;
-  padding-top: 0;
+  //padding-top: 0;
+  position: relative;
+  padding-top: 70px;
 }
 
 .el-container {
