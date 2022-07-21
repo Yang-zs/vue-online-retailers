@@ -13,6 +13,9 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     quotes: 'off',
     'no-unused-vars': 'off',
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    'no-trailing-spaces': 'off',
+    'no-unused-expressions': 'off',
+    'eslint-disable-line': 'off'
   }
 }

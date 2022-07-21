@@ -3,7 +3,9 @@
   <Card/>
   <div class="bottom">
     <Histogram/>
-    <div class="test">2</div>
+    <div class="test">
+      <Shop/>
+    </div>
   </div>
 </template>
 
@@ -11,17 +13,20 @@
 import Card from './card'
 import Order from './order.vue'
 import Histogram from './histogram.vue'
+import Shop from './shop.vue'
+
 </script>
 
 <style lang="scss" scoped>
 .bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   .test {
-    width: 100px;
-    height: 100px;
-    background-color: #ff0000;
+    width: 620px;
+    margin-left: 27px;
+    margin-top: 20px;
   }
 }
+
 </style>
